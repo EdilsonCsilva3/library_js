@@ -1,0 +1,239 @@
+:root {
+  /* Tipografia */
+  --fonte-principal: 'Open Sans', Arial, sans-serif;
+
+  /* Cores de Fundo e Texto */
+  --cor-fundo-app: #0e1d29;
+  --cor-texto-branco: #ffffff;
+  --cor-alerta: #ff0000;
+
+  /* Paleta dos Módulos (Cards) */
+  --cor-mod-crm: #2976c4;
+  --cor-mod-vendas: #f8931d;
+  --cor-mod-servicos: #15b5b0;
+  --cor-mod-compras: #ef5a50;
+  --cor-mod-financas: #7bc143;
+  --cor-mod-contador: #00aee7;
+
+  /* Estrutura (Espaçamentos e Bordas) */
+  --padding-card: 24px;
+  --border-radius-padrao: 4px;
+}
+
+
+
+
+
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    
+    box-sizing: border-box !important;
+}
+ul li{
+    list-style: none;
+   
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+a:visited , a:active{
+    color: black;
+}
+
+p{
+    position: relative;
+    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.dd{
+    background-color: red;
+}
+
+.scroll-show{
+    overflow-y: auto !important;
+}
+.scroll-hide{
+    overflow:hidden !important;
+}
+
+
+
+.not-border{
+    border: 0 !important;
+}
+
+
+.ui-bd6{
+    border-radius: 6px;
+}
+.ui-round{
+    border-radius: 50%;
+    width: 64px !important;
+    height: 64px !important;
+}
+
+.ui-square{
+    border-radius:10%;
+    width: 64px !important;
+    height: 64px !important;
+}
+.ui-square--128{
+    width: 128px !important;
+    height: 128px !important;
+}
+
+html,body{
+    position: relative;
+    background-color: bisque;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+.ui-flex-col-center{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.ui-img{
+    border: 2px solid #000;
+    display: inline-block; 
+    padding: .4em;
+    overflow: hidden;
+
+}
+.ui-img img{
+    position: relative;
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+
+/*ui-navbar*/
+
+.ui-navbar{
+    position: fixed;
+    top:0;
+    left: 0;
+    overflow-y: scroll !important;
+    z-index: 9999;
+    background: linear-gradient(135deg, #202020, #81521c); /* Fundo degradê */
+    color: #fff;
+    height: 100vh;
+
+}
+
+.ui-navbar__title{
+    
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: .2em;
+    font-family: var(--fonte-principal)
+}
+ 
+
+/*ui-navbar*/
+
+
+/*ui-menu-item*/
+.ui-menu-item{
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 49%;
+    width: 49%;
+    min-height: 180px;
+    height: 180px;
+
+}
+
+.ui-menu-item__action{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+
+}
+.ui-navbar__close{
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+
+}
+.ui-navbar__close a{
+    font-size: x-large;
+    color:var(--cor-texto-branco);
+    display: inline-block;
+    padding: .5em;
+    font-family: monospace;
+    font-weight: 800;
+
+
+}
+.ui-menu-item__ico{
+    color: #000;
+    fill: #000;
+}
+
+
+.ui-menu-list_item{
+    display: flex;
+    
+    align-items: center;
+    gap: .1em;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+    
+    padding: .1em;
+}
+
+
+.--ui-menu-item-f{
+    background-color: var(--cor-mod-compras);
+    
+}
+
+.--ui-menu-item-f div{
+    color: #fff;
+}
+.--ui-menu-item-f div svg{
+    fill: #fff;
+    
+}
+
+
+.--ui-menu-item-f1{
+    background-color: var(--cor-mod-contador);
+    
+}
+
+
+.--ui-menu-item-f1 div{
+    color: #fff;
+}
+.--ui-menu-item-f1 div svg{
+    fill: #fff;
+    
+}
+
+
+
+/*ui-menu-item*/
+
+

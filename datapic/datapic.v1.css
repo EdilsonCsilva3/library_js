@@ -1,0 +1,224 @@
+/* =========================================
+   1. CONTROLE DE EXIBIÇÃO DA MODAL
+========================================= */
+._modal_calendar {
+    display: none;
+}
+
+/* Quando o JS adicionar a classe, usamos FLEX para centralizar na tela */
+._modal_calendar--show {
+    display: flex !important;
+}
+
+/* =========================================
+   2. FUNDO DA TELA (VIDRO ESCURO)
+========================================= */
+#calendar {
+    /* Fixed prende a modal na tela, ignorando o scroll do site */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    
+    /* Centraliza tudo no meio da tela */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Fundo escuro com desfoque para destacar a caixa central */
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Evita barra de rolagem horizontal */
+}
+
+/* =========================================
+   3. CAIXA CENTRAL (CALENDÁRIO)
+========================================= */
+.calendar_container {
+    display: flex;
+    flex-wrap: wrap; /* Quebra linha no celular automaticamente */
+    gap: 15px;       /* Espaço perfeito entre os selects */
+    justify-content: center;
+    align-items: center;
+    
+    /* Efeito de Vidro na caixa */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    
+    margin-bottom: 25px; /* Espaço entre a caixa e os botões */
+    max-width: 100%;
+}
+
+/* =========================================
+   4. ESTILIZAÇÃO DOS SELECTS
+========================================= */
+#calendar select {
+    width: 100px;
+    height: 64px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5em;
+    cursor: pointer;
+    outline: none;
+    
+    /* Contraste: Fundo escuro semitransparente */
+    background: rgba(0, 0, 0, 0.4); 
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    
+    transition: all 0.3s ease;
+    
+    /* Remove a setinha nativa */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Oculta scrollbar no Firefox */
+    scrollbar-width: none; 
+}
+
+/* Oculta scrollbar no Chrome, Edge, Safari e Opera */
+#calendar select::-webkit-scrollbar {
+    display: none; 
+    width: 0;
+    height: 0; 
+}
+#calendar select::-webkit-scrollbar-track {
+    background: transparent; 
+}
+#calendar select::-webkit-scrollbar-thumb {
+    background: transparent; 
+}
+
+/* Interação ao passar o mouse ou clicar */
+#calendar select:hover,
+#calendar select:focus {
+    background: rgba(0, 0, 0, 0.6);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* A lista que abre ao clicar */
+#calendar select option {
+    background-color: #2c3e50; 
+    color: white;
+    font-size: 18px;
+    text-shadow: none; 
+}
+
+/* =========================================
+   5. BOTÕES (CONFIRMAR E X)
+========================================= */
+.botoes_container {
+    display: flex;
+    gap: 20px; /* Espaço entre o botão Confirmar e o X */
+}
+
+#calendar .botoes_container span a {
+    display: inline-block;
+    padding: 12px 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+    
+    /* Design de vidro arredondado */
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px; 
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#calendar .botoes_container span a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Botão X (Vermelho transparente) */
+#calendar .botoes_container span:last-child a {
+    background: rgba(220, 53, 69, 0.4);
+    padding: 12px 20px; 
+}
+
+#calendar .botoes_container span:last-child a:hover {
+    background: rgba(220, 53, 69, 0.8);
+}
+
+/* =========================================
+   6. RESPONSIVIDADE (MEDIA QUERIES)
+========================================= */
+
+/* Para telas muito pequenas (Celulares estreitos - até 380px) */
+@media (max-width: 380px) {
+    .calendar_container {
+        padding: 15px; 
+        gap: 10px;     
+    }
+
+    #calendar select {
+        width: 70px;     
+        height: 50px;
+        font-size: 18px; 
+        padding: 0.2em;
+    }
+
+    #calendar .botoes_container span a {
+        padding: 10px 20px;
+        font-size: 14px; 
+    }
+}
+
+/* Para telas pequenas normais (Celulares modernos em pé - até 600px) */
+@media (max-width: 600px) {
+    .calendar_container {
+        width: 95%; 
+        padding: 20px;
+    }
+
+    #calendar select {
+        width: 80px; 
+        height: 55px;
+        font-size: 20px; 
+    }
+}
+
+/* Para Telas Gigantes (Smart TVs 4K, Monitores Ultrawide - acima de 1920px) */
+@media (min-width: 1920px) {
+    .calendar_container {
+        padding: 60px; 
+        gap: 30px;
+        border-radius: 30px;
+    }
+
+    #calendar select {
+        width: 150px;    
+        height: 90px;
+        font-size: 36px; 
+        border-radius: 20px;
+    }
+
+    #calendar .botoes_container span a {
+        padding: 20px 50px;
+        font-size: 24px; 
+        border-radius: 60px;
+    }
+}

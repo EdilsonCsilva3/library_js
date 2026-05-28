@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="datapic.v1.css">
+
+</head>
+
+<body>
+
+    <div class="datapic_container">
+        <input type="text" id="a" class="onCalendarShow">
+    </div>
+
+
+    <br>
+
+    <div class="datapic_container">
+        <input type="text" id="b" class="onCalendarShow">
+    </div>
+
+
+
+
+    <br>
+
+    <div class="datapic_container">
+        <input type="text" id="c" class="onCalendarShow">
+    </div>
+
+
+
+
+    <br>
+
+    <div class="datapic_container">
+        <input type="text" id="d" class="onCalendarShow">
+    </div>
+
+
+
+
+
+    <div id="calendar" class="_modal_calendar ">
+
+        <div class="calendar_container">
+
+            <select name="dia" id="dia"></select>
+            <select name="mes" id="mes"></select>
+            <select name="ano" id="ano"></select>
+            <select name="hora" id="hora"></select>
+            <select name="minuto" id="minuto"></select>
+
+        </div>
+        <div class="botoes_container">
+            <span>
+                <a href="#" onclick="meuCalendario.confirm(); return false;">Confirmar</a>
+            </span>
+            <span>
+                <a href="#" onclick="meuCalendario.close(); return false;">X</a>
+            </span>
+        </div>
+    </div>
+
+
+    <script src="Calendar.js"></script>
+
+
+
+    <script>
+        // 1. Cria a instância UMA ÚNICA VEZ e guarda na memória
+        const meuCalendario = Calendar('calendar');
+
+        // 2. Pega todos os inputs da tela
+        const inputs = document.querySelectorAll('.onCalendarShow');
+
+        // 3. Adiciona o evento de clique
+        inputs.forEach(function (input) {
+            input.addEventListener('click', function (e) {
+
+                // Usa a MESMA instância para abrir e guardar o inputAtivo
+                meuCalendario.show(e.target);
+
+            });
+        });
+    </script>
+</body>
+
+</html>
